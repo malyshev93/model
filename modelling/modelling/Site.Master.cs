@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Web.Security;
 using System.Security.Cryptography;
 
+
 namespace modelling
 {
    
@@ -16,9 +17,10 @@ namespace modelling
         
         protected void EnterTheSystem(object sender, EventArgs e)
         {
-            SqlConnection c = new SqlConnection();
             SqlCommand q = new SqlCommand();
-            c.ConnectionString = @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Андрей\Documents\Visual Studio 2010\Projects\modelling\modelling\App_Data\Database1.mdf;Integrated Security=True;User Instance=True";
+            SqlConnection c = new SqlConnection("Server=localhost;" +
+                   "database=DATABASE1.MDF;" +
+                   "Integrated Security=True;");
             c.Open();
             q.Connection = c;
             TextBox t = ((TextBox)HeadLoginView.FindControl("loginUsrName"));
